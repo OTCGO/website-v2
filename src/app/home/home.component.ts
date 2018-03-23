@@ -34,6 +34,7 @@ export class HomeComponent implements OnInit {
    * Set our default values
    */
   public localState = { value: '' };
+  public data;
   /**
    * TypeScript public modifiers
    */
@@ -44,9 +45,8 @@ export class HomeComponent implements OnInit {
 
   public ngOnInit() {
     console.log('hello `Home` component');
-    /**
-     * this.title.getData().subscribe(data => this.data = data);
-     */
+
+    this.data = this.title.getData()
   }
 
   public submitState(value: string) {

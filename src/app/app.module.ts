@@ -16,6 +16,8 @@ import {
 } from '@angular/router';
 
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { MnFullpageModule } from 'ngx-fullpage';
+
 
 /*
  * Platform and Environment providers/directives/pipes
@@ -28,11 +30,15 @@ import { APP_RESOLVER_PROVIDERS } from './app.resolver';
 import { AppState, InternalStateType } from './app.service';
 import { HomeComponent } from './home';
 import { AboutComponent } from './about';
+import { TaskListComponent } from './task-list'
+import { HeaderComponent } from './header';
+import { FooterComponent } from "./footer/footer.component";
 import { NoContentComponent } from './no-content';
 import { XLargeDirective } from './home/x-large';
 
 import '../styles/styles.scss';
 import '../styles/headings.css';
+
 
 // Application wide providers
 const APP_PROVIDERS = [
@@ -55,8 +61,11 @@ type StoreType = {
     AppComponent,
     AboutComponent,
     HomeComponent,
+    HeaderComponent,
+    TaskListComponent,
     NoContentComponent,
-    XLargeDirective
+    XLargeDirective,
+    FooterComponent
   ],
   /**
    * Import Angular's modules.
@@ -66,6 +75,7 @@ type StoreType = {
     BrowserAnimationsModule,
     FormsModule,
     HttpModule,
+    MnFullpageModule.forRoot(),
     RouterModule.forRoot(ROUTES, {
       useHash: Boolean(history.pushState) === false,
       preloadingStrategy: PreloadAllModules
